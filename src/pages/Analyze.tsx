@@ -40,8 +40,12 @@ const Analyze = () => {
   return (
     <div className="min-h-screen bg-background pt-24 pb-12">
       <div className="max-w-[1200px] mx-auto px-6 md:px-12">
-        <h1 className="text-3xl md:text-4xl font-serif text-foreground text-center mb-2">Analyze Your Item</h1>
-        <p className="text-center text-muted-foreground mb-10">Upload a photo or try an example to get started.</p>
+        {state !== "results" && (
+          <>
+            <h1 className="text-4xl md:text-5xl font-serif text-foreground text-center mb-2">Analyze Your Item</h1>
+            <p className="text-center text-muted-foreground mb-10">Upload a photo or try an example to get started.</p>
+          </>
+        )}
 
         {state === "idle" && (
           <>
@@ -66,15 +70,15 @@ const Analyze = () => {
             />
             <WhyThisPlatform platform={top.platform} reasoning={top.reasoning} />
 
-            <div className="text-center pt-6">
+            <div className="text-center pt-8">
               <button
                 onClick={() => {
                   setState("idle");
                   setResult(null);
                 }}
-                className="text-sm font-medium text-primary hover:underline"
+                className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded-xl text-base font-medium hover:opacity-90 transition-opacity"
               >
-                ← Analyze another item
+                ← Analyze Another Item
               </button>
             </div>
           </div>

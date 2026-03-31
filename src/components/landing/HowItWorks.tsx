@@ -13,14 +13,14 @@ const HowItWorks = () => (
       {steps.map((step, i) => (
         <div
           key={step.title}
-          className="bg-card rounded-xl border border-border shadow-sm p-8 text-center"
+          className="bg-card rounded-xl border border-border shadow-sm p-8 text-center hover:shadow-md hover:-translate-y-1 transition-all duration-200"
         >
-          <div className="w-12 h-12 rounded-full bg-accent flex items-center justify-center mx-auto mb-5">
+          <div className="w-14 h-14 rounded-full bg-accent flex items-center justify-center mx-auto mb-5">
             <step.icon size={22} className="text-primary" />
           </div>
           <p className="text-xs font-medium text-muted-foreground mb-2">Step {i + 1}</p>
           <h3 className="text-lg font-serif text-foreground mb-2">{step.title}</h3>
-          <p className="text-sm text-muted-foreground leading-relaxed">{step.description}</p>
+          <p className="text-sm text-muted-foreground leading-relaxed" style={{ lineHeight: '1.8' }}>{step.description}</p>
         </div>
       ))}
     </div>

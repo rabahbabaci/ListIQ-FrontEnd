@@ -6,7 +6,7 @@ import Footer from "@/components/layout/Footer";
 const About = () => (
   <div className="min-h-screen bg-background pt-24 pb-12">
     <div className="max-w-[1200px] mx-auto px-6 md:px-12">
-      <h1 className="text-3xl md:text-4xl font-serif text-foreground text-center mb-12">About ListIQ</h1>
+      <h1 className="text-4xl md:text-5xl font-serif text-foreground text-center mb-12">About ListIQ</h1>
 
       <HowItWorksDetail />
 

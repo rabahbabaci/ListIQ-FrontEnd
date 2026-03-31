@@ -7,6 +7,7 @@ export const mockDenimJacket: AnalysisResult = {
     condition: "Like New",
     color: "Blue",
     estimated_retail: 89.99,
+    image_url: "https://images.unsplash.com/photo-1576995853123-5a10305d93c0?w=400",
   },
   recommendations: [
     {
@@ -46,6 +47,7 @@ export const mockSneakers: AnalysisResult = {
     condition: "Good",
     color: "White/Black",
     estimated_retail: 120.0,
+    image_url: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400",
   },
   recommendations: [
     {
@@ -85,6 +87,7 @@ export const mockHandbag: AnalysisResult = {
     condition: "New With Tags",
     color: "Brown",
     estimated_retail: 295.0,
+    image_url: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=400",
   },
   recommendations: [
     {
