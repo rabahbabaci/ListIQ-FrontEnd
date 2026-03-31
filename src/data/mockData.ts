@@ -47,6 +47,7 @@ export const mockSneakers: AnalysisResult = {
     condition: "Good",
     color: "White/Black",
     estimated_retail: 120.0,
+    image_url: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400",
   },
   recommendations: [
     {
