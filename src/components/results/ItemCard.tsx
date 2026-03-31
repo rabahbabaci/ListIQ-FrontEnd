@@ -22,6 +22,7 @@ const ItemCard = ({ item }: ItemCardProps) => (
       <h3 className="text-xl font-serif text-foreground">{item.brand} {item.category}</h3>
       <div className="mt-3 flex flex-wrap gap-2">
         {[
+          { label: "Size", value: item.size },
           { label: "Condition", value: item.condition },
           { label: "Color", value: item.color },
           { label: "Est. Retail", value: `$${item.estimated_retail.toFixed(2)}` },
