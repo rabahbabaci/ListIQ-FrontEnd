@@ -7,6 +7,7 @@ export const mockDenimJacket: AnalysisResult = {
     condition: "Like New",
     color: "Blue",
     estimated_retail: 89.99,
+    image_url: "https://images.unsplash.com/photo-1576995853123-5a10305d93c0?w=400",
   },
   recommendations: [
     {
