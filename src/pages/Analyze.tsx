@@ -40,8 +40,12 @@ const Analyze = () => {
   return (
     <div className="min-h-screen bg-background pt-24 pb-12">
       <div className="max-w-[1200px] mx-auto px-6 md:px-12">
-        <h1 className="text-3xl md:text-4xl font-serif text-foreground text-center mb-2">Analyze Your Item</h1>
-        <p className="text-center text-muted-foreground mb-10">Upload a photo or try an example to get started.</p>
+        {state !== "results" && (
+          <>
+            <h1 className="text-4xl md:text-5xl font-serif text-foreground text-center mb-2">Analyze Your Item</h1>
+            <p className="text-center text-muted-foreground mb-10">Upload a photo or try an example to get started.</p>
+          </>
+        )}
 
         {state === "idle" && (
           <>
