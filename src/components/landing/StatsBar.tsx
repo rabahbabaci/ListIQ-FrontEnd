@@ -12,7 +12,7 @@ const StatsBar = () => (
           key={stat.label}
           className="text-center py-6 px-4 bg-card rounded-xl border border-border shadow-sm"
         >
-          <p className="text-3xl font-serif text-primary">{stat.value}</p>
+          <p className="text-4xl font-bold text-primary">{stat.value}</p>
           <p className="mt-1 text-sm text-muted-foreground font-medium">{stat.label}</p>
         </div>
       ))}

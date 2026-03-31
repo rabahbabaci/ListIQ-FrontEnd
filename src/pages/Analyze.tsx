@@ -70,15 +70,15 @@ const Analyze = () => {
             />
             <WhyThisPlatform platform={top.platform} reasoning={top.reasoning} />
 
-            <div className="text-center pt-6">
+            <div className="text-center pt-8">
               <button
                 onClick={() => {
                   setState("idle");
                   setResult(null);
                 }}
-                className="text-sm font-medium text-primary hover:underline"
+                className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded-xl text-base font-medium hover:opacity-90 transition-opacity"
               >
-                ← Analyze another item
+                ← Analyze Another Item
               </button>
             </div>
           </div>

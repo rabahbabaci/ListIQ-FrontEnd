@@ -35,7 +35,7 @@ const PlatformRanking = ({ recommendations }: PlatformRankingProps) => {
           <div
             key={rec.platform}
             className={`text-center p-3 rounded-lg ${
-              rec.rank === 1 ? "bg-accent border border-primary/20" : "bg-background"
+              rec.rank === 1 ? "bg-accent border border-primary/20 border-l-4 border-l-primary" : "bg-background opacity-75"
             }`}
           >
             <div className="flex items-center justify-center gap-1.5 mb-1">

@@ -20,7 +20,7 @@ const HowItWorks = () => (
           </div>
           <p className="text-xs font-medium text-muted-foreground mb-2">Step {i + 1}</p>
           <h3 className="text-lg font-serif text-foreground mb-2">{step.title}</h3>
-          <p className="text-sm text-muted-foreground leading-relaxed">{step.description}</p>
+          <p className="text-sm text-muted-foreground leading-relaxed" style={{ lineHeight: '1.8' }}>{step.description}</p>
         </div>
       ))}
     </div>

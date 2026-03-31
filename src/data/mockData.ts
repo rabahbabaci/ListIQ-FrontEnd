@@ -87,6 +87,7 @@ export const mockHandbag: AnalysisResult = {
     condition: "New With Tags",
     color: "Brown",
     estimated_retail: 295.0,
+    image_url: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=400",
   },
   recommendations: [
     {
