@@ -13,7 +13,7 @@ const HowItWorks = () => (
       {steps.map((step, i) => (
         <div
           key={step.title}
-          className="bg-card rounded-xl border border-border shadow-sm p-8 text-center"
+          className="bg-card rounded-xl border border-border shadow-sm p-8 text-center hover:shadow-md hover:-translate-y-1 transition-all duration-200"
         >
           <div className="w-12 h-12 rounded-full bg-accent flex items-center justify-center mx-auto mb-5">
             <step.icon size={22} className="text-primary" />
