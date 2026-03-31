@@ -3,7 +3,7 @@ import { ChevronRight } from "lucide-react";
 
 const HeroSection = () => (
   <section className="pt-32 pb-20 md:pt-44 md:pb-28 text-center px-6 md:px-12">
-    <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif text-foreground leading-tight max-w-3xl mx-auto">
+    <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif text-foreground leading-tight max-w-4xl mx-auto whitespace-nowrap">
       Should I Sell This?
     </h1>
     <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
