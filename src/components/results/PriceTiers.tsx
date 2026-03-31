@@ -1,8 +1,11 @@
-import { PriceTiers as PriceTiersType } from "@/types/api";
+import { PriceTiers as PriceTiersType, NetProfit } from "@/types/api";
 import { DollarSign, Zap, Scale, TrendingUp } from "lucide-react";
 
 interface PriceTiersProps {
   priceTiers: PriceTiersType;
+  netProfit: NetProfit;
+  platformFeePct: number;
+  estimatedShipping: number;
   platform: string;
 }
 
@@ -12,7 +15,7 @@ const tiers = [
   { key: "max_revenue" as const, label: "Max Revenue", icon: TrendingUp, description: "Hold for top dollar" },
 ];
 
-const PriceTiersComponent = ({ priceTiers, platform }: PriceTiersProps) => (
+const PriceTiersComponent = ({ priceTiers, netProfit, platformFeePct, estimatedShipping, platform }: PriceTiersProps) => (
   <div className="bg-card rounded-xl border border-border shadow-sm p-6 animate-fade-in" style={{ animationDelay: "0.2s" }}>
     <div className="flex items-center gap-2 mb-4">
       <DollarSign size={18} className="text-gold" />
@@ -21,7 +24,8 @@ const PriceTiersComponent = ({ priceTiers, platform }: PriceTiersProps) => (
 
     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
       {tiers.map((tier, i) => {
-        const value = priceTiers[tier.key];
+        const salePrice = priceTiers[tier.key];
+        const net = netProfit[tier.key];
         const isMiddle = i === 1;
         return (
           <div
@@ -32,8 +36,12 @@ const PriceTiersComponent = ({ priceTiers, platform }: PriceTiersProps) => (
           >
             <tier.icon size={18} className={`mx-auto mb-2 ${isMiddle ? "text-primary" : "text-muted-foreground"}`} />
             <p className="text-xs font-medium text-muted-foreground mb-1">{tier.label}</p>
-            <p className="text-3xl font-serif text-gold">${value}</p>
-            <p className="text-xs text-muted-foreground mt-1">{tier.description}</p>
+            <p className="text-xs text-muted-foreground">Sells for ${salePrice}</p>
+            <p className="text-3xl font-serif text-gold mt-1">${net.toFixed(2)}</p>
+            <p className="text-xs font-medium text-foreground mt-0.5">in your pocket</p>
+            <p className="text-[11px] text-muted-foreground mt-2">
+              after {Math.round(platformFeePct * 100)}% {platform} fee + ${estimatedShipping.toFixed(2)} shipping
+            </p>
           </div>
         );
       })}
