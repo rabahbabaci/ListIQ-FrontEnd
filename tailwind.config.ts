@@ -51,14 +51,15 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        brand: {
-          DEFAULT: '#18181B',
-          soft: '#F4F4F5',
+        indigo: {
+          DEFAULT: '#5B4FD6',
+          hover: '#4A3FC2',
+          soft: '#EDEAFC',
         },
-        action: {
-          DEFAULT: '#2563EB',
-          hover: '#1D4ED8',
-          soft: '#EFF6FF',
+        amber: {
+          DEFAULT: '#E5A22D',
+          hover: '#D4911F',
+          soft: '#FDF6E8',
         },
         depop: '#FF2300',
         poshmark: '#7B2D8E',

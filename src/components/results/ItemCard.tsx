@@ -6,7 +6,7 @@ interface ItemCardProps {
 }
 
 const ItemCard = ({ item }: ItemCardProps) => (
-  <div className="bg-white rounded-2xl border border-zinc-100 shadow-sm p-6 md:p-8 flex flex-col md:flex-row gap-6 animate-fade-in">
+  <div className="bg-white rounded-2xl border border-stone-200 shadow-sm p-6 md:p-8 flex flex-col md:flex-row gap-6 animate-fade-in">
     {item.image_url ? (
       <img
         src={item.image_url}
@@ -14,13 +14,13 @@ const ItemCard = ({ item }: ItemCardProps) => (
         className="w-full md:w-40 h-40 object-cover rounded-xl"
       />
     ) : (
-      <div className="w-full md:w-40 h-40 rounded-xl bg-zinc-100 flex items-center justify-center">
-        <Camera size={32} className="text-zinc-300" />
+      <div className="w-full md:w-40 h-40 rounded-xl bg-stone-100 flex items-center justify-center">
+        <Camera size={32} className="text-stone-300" />
       </div>
     )}
     <div className="flex-1">
-      <h3 className="font-sans text-xl md:text-2xl font-bold text-zinc-900">{item.brand} {item.category}</h3>
-      <p className="text-sm text-zinc-400 mt-1">Est. retail ${item.estimated_retail.toFixed(2)}</p>
+      <h3 className="font-sans text-xl md:text-2xl font-bold text-stone-900">{item.brand} {item.category}</h3>
+      <p className="text-sm text-stone-400 mt-1">Est. retail ${item.estimated_retail.toFixed(2)}</p>
       <div className="mt-3 flex flex-wrap gap-2">
         {[
           { label: "Size", value: item.size },
@@ -29,7 +29,7 @@ const ItemCard = ({ item }: ItemCardProps) => (
         ].map((attr) => (
           <span
             key={attr.label}
-            className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-zinc-100 text-zinc-700"
+            className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-[#EDEAFC] text-[#5B4FD6]"
           >
             {attr.label}: {attr.value}
           </span>

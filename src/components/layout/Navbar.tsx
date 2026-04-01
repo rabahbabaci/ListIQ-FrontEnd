@@ -13,11 +13,11 @@ const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <nav className="sticky top-0 z-50 bg-white border-b border-zinc-100">
+    <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-stone-200">
       <div className="max-w-[1200px] mx-auto flex items-center justify-between px-6 md:px-12 h-16">
         <Link to="/" className="text-xl tracking-tight">
-          <span className="font-serif font-bold text-zinc-900">List</span>
-          <span className="font-sans font-light text-zinc-400">IQ</span>
+          <span className="font-serif font-bold text-stone-900">List</span>
+          <span className="font-sans font-bold text-[#5B4FD6]">IQ</span>
         </Link>
 
         {/* Desktop */}
@@ -28,8 +28,8 @@ const Navbar = () => {
               to={link.to}
               className={`text-sm transition-colors ${
                 location.pathname === link.to
-                  ? "text-zinc-900 font-medium border-b-2 border-zinc-900 pb-0.5"
-                  : "text-zinc-500 hover:text-zinc-900"
+                  ? "text-[#5B4FD6] font-medium border-b-2 border-[#5B4FD6] pb-0.5"
+                  : "text-stone-500 hover:text-stone-900"
               }`}
             >
               {link.label}
@@ -39,7 +39,7 @@ const Navbar = () => {
 
         {/* Mobile toggle */}
         <button
-          className="md:hidden text-zinc-900"
+          className="md:hidden text-stone-900"
           onClick={() => setMobileOpen(!mobileOpen)}
         >
           {mobileOpen ? <X size={24} /> : <Menu size={24} />}
@@ -48,7 +48,7 @@ const Navbar = () => {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="md:hidden border-t border-zinc-100 bg-white px-6 py-4 space-y-3">
+        <div className="md:hidden border-t border-stone-200 bg-white px-6 py-4 space-y-3">
           {navLinks.map((link) => (
             <Link
               key={link.to}
@@ -56,8 +56,8 @@ const Navbar = () => {
               onClick={() => setMobileOpen(false)}
               className={`block text-sm ${
                 location.pathname === link.to
-                  ? "text-zinc-900 font-medium"
-                  : "text-zinc-500"
+                  ? "text-[#5B4FD6] font-medium"
+                  : "text-stone-500"
               }`}
             >
               {link.label}

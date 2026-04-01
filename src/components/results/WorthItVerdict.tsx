@@ -47,20 +47,20 @@ const WorthItVerdictComponent = ({ worthIt }: WorthItVerdictProps) => {
           <h2 className={`font-serif text-2xl md:text-3xl font-bold ${config.headlineColor} mb-2`}>
             {config.headline}
           </h2>
-          <p className="text-base text-zinc-600 leading-relaxed mb-4">
+          <p className="text-base text-stone-600 leading-relaxed mb-4">
             {worthIt.explanation}
           </p>
           <div className="flex flex-wrap items-baseline gap-x-6 gap-y-2">
-            <p className="text-lg font-medium text-zinc-900">
+            <p className="text-lg font-medium text-stone-900">
               Estimated{" "}
               <span className={`font-serif text-3xl font-bold ${config.profitColor}`}>
                 ${worthIt.best_net_profit.toFixed(2)}
               </span>{" "}
               net on {worthIt.best_platform}
             </p>
-            <p className="text-lg font-semibold text-zinc-700">
+            <p className="text-lg font-semibold text-stone-700">
               ${worthIt.effective_hourly_rate.toFixed(2)}/hr
-              <span className="text-sm font-normal text-zinc-400 ml-1">effective rate</span>
+              <span className="text-sm font-normal text-stone-400 ml-1">effective rate</span>
             </p>
           </div>
           {isFalse && (

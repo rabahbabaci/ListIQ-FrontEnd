@@ -6,57 +6,58 @@
 
 @layer base {
   :root {
-    --background: 0 0% 98%;
-    --foreground: 240 6% 10%;
+    --background: 40 20% 97%;
+    --foreground: 20 10% 10%;
 
     --card: 0 0% 100%;
-    --card-foreground: 240 6% 10%;
+    --card-foreground: 20 10% 10%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 240 6% 10%;
+    --popover-foreground: 20 10% 10%;
 
-    --primary: 240 6% 10%;
+    --primary: 248 62% 57%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 240 5% 96%;
-    --secondary-foreground: 240 6% 10%;
+    --secondary: 250 60% 96%;
+    --secondary-foreground: 248 62% 57%;
 
-    --muted: 240 4% 46%;
-    --muted-foreground: 240 4% 46%;
+    --muted: 25 6% 46%;
+    --muted-foreground: 25 6% 46%;
 
-    --accent: 240 5% 96%;
-    --accent-foreground: 240 6% 10%;
+    --accent: 250 60% 96%;
+    --accent-foreground: 248 62% 57%;
 
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 240 6% 90%;
-    --input: 240 6% 90%;
-    --ring: 240 6% 10%;
+    --border: 20 6% 90%;
+    --input: 20 6% 90%;
+    --ring: 248 62% 57%;
 
     --radius: 0.75rem;
 
-    /* Backgrounds */
-    --color-bg: #FAFAFA;
+    /* Backgrounds — warm stone base */
+    --color-bg: #F8F7F4;
     --color-bg-card: #FFFFFF;
-    --color-bg-subtle: #F5F5F4;
+    --color-bg-subtle: #F2F0EB;
     --color-bg-elevated: #FFFFFF;
 
-    /* Text */
-    --color-text-primary: #18181B;
-    --color-text-secondary: #71717A;
-    --color-text-muted: #A1A1AA;
+    /* Text — warm, not cold */
+    --color-text-primary: #1C1917;
+    --color-text-secondary: #78716C;
+    --color-text-muted: #A8A29E;
 
-    /* ListIQ brand accent */
-    --color-accent: #18181B;
-    --color-accent-soft: #F4F4F5;
+    /* Brand accent — warm indigo (intelligence, fashion heritage) */
+    --color-accent: #5B4FD6;
+    --color-accent-hover: #4A3FC2;
+    --color-accent-soft: #EDEAFC;
 
-    /* Action color */
-    --color-action: #2563EB;
-    --color-action-hover: #1D4ED8;
-    --color-action-soft: #EFF6FF;
+    /* Action / value — warm amber (opportunity, money) */
+    --color-action: #E5A22D;
+    --color-action-hover: #D4911F;
+    --color-action-soft: #FDF6E8;
 
-    /* Verdict states */
+    /* Verdict states — emotional color pops */
     --color-verdict-green: #059669;
     --color-verdict-green-bg: #ECFDF5;
     --color-verdict-amber: #D97706;
@@ -64,13 +65,10 @@
     --color-verdict-red: #DC2626;
     --color-verdict-red-bg: #FEF2F2;
 
-    /* Platform brand colors */
+    /* Platform brand colors — sacred, never change */
     --color-depop: #FF2300;
     --color-poshmark: #7B2D8E;
     --color-ebay: #0064D2;
-
-    /* Pricing */
-    --color-money: #18181B;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -78,8 +76,8 @@
     --sidebar-primary-foreground: 0 0% 98%;
     --sidebar-accent: 240 4.8% 95.9%;
     --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 240 6% 90%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-border: 20 6% 90%;
+    --sidebar-ring: 248 62% 57%;
   }
 }
 
@@ -90,8 +88,8 @@
 
   body {
     font-family: 'DM Sans', sans-serif;
-    background-color: #FAFAFA;
-    color: #18181B;
+    background-color: #F8F7F4;
+    color: #1C1917;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
