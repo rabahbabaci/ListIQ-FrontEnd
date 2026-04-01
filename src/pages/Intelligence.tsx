@@ -9,10 +9,10 @@ const charts = [
 ];
 
 const Intelligence = () => (
-  <div className="min-h-screen bg-[#FAFAF8] pt-24 pb-12">
+  <div className="min-h-screen bg-[#FAFAFA] pt-24 pb-12">
     <div className="max-w-[1200px] mx-auto px-6 md:px-12">
-      <h1 className="font-serif text-4xl md:text-5xl font-bold text-gray-900 text-center mb-3">Platform Intelligence Dashboard</h1>
-      <p className="text-center text-gray-500 text-lg mb-12 max-w-2xl mx-auto">
+      <h1 className="font-sans text-4xl md:text-5xl font-bold text-zinc-900 text-center mb-3">Platform Intelligence Dashboard</h1>
+      <p className="text-center text-zinc-400 text-lg mb-12 max-w-2xl mx-auto">
         Insights from 10,000+ real sold listings across Poshmark, eBay, and Depop
       </p>
 
@@ -22,8 +22,8 @@ const Intelligence = () => (
         ))}
       </div>
 
-      <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-8">
-        <h3 className="font-serif text-lg font-bold text-gray-900 mb-4">Data Summary</h3>
+      <div className="bg-white rounded-2xl border border-zinc-100 shadow-sm p-8">
+        <h3 className="font-sans text-lg font-bold text-zinc-900 mb-4">Data Summary</h3>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           {[
             { label: "Total Listings", value: "10,247" },
@@ -32,8 +32,8 @@ const Intelligence = () => (
             { label: "Platforms", value: "3" },
           ].map((stat) => (
             <div key={stat.label}>
-              <p className="text-sm text-gray-500">{stat.label}</p>
-              <p className="font-serif text-3xl font-bold text-gray-900 mt-1">{stat.value}</p>
+              <p className="text-sm text-zinc-500">{stat.label}</p>
+              <p className="font-serif text-3xl font-bold text-zinc-900 mt-1">{stat.value}</p>
             </div>
           ))}
         </div>

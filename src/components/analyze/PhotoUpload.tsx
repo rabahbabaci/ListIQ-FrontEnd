@@ -22,12 +22,12 @@ const PhotoUpload = ({ onFileSelected }: PhotoUploadProps) => {
       onDrop={handleDrop}
       className="block cursor-pointer"
     >
-      <div className="border-2 border-dashed border-gray-200 rounded-2xl p-12 md:p-16 text-center hover:border-teal-400 hover:bg-teal-50/30 transition-all duration-200">
-        <div className="w-12 h-12 rounded-full bg-teal-50 flex items-center justify-center mx-auto">
-          <Camera size={24} className="text-teal-600" />
+      <div className="border-2 border-dashed border-zinc-200 rounded-2xl p-12 md:p-16 text-center hover:border-zinc-400 transition-all duration-200">
+        <div className="w-12 h-12 rounded-full bg-zinc-100 flex items-center justify-center mx-auto">
+          <Camera size={24} className="text-zinc-600" />
         </div>
-        <p className="text-gray-700 font-medium text-lg mt-4">Drop your item photo here or click to upload</p>
-        <p className="text-gray-400 text-sm mt-2 flex items-center justify-center gap-1">
+        <p className="text-zinc-700 font-medium text-lg mt-4">Drop your item photo here or click to upload</p>
+        <p className="text-zinc-400 text-sm mt-2 flex items-center justify-center gap-1">
           <Upload size={14} /> JPG, PNG up to 10MB
         </p>
       </div>
