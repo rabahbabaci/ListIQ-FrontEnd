@@ -1,8 +1,8 @@
 const TheOpportunity = () => (
   <section className="mb-16">
-    <div className="bg-zinc-50 rounded-2xl p-8 md:p-10 border border-zinc-100 max-w-3xl mx-auto">
-      <h2 className="font-sans text-2xl font-bold text-zinc-900 text-center mb-6">The Opportunity</h2>
-      <div className="space-y-4 text-zinc-600 leading-relaxed">
+    <div className="bg-[#EDEAFC]/50 rounded-2xl p-8 md:p-10 border border-[#5B4FD6]/10 max-w-3xl mx-auto">
+      <h2 className="font-sans text-2xl font-bold text-stone-900 text-center mb-6">The Opportunity</h2>
+      <div className="space-y-4 text-stone-600 leading-relaxed">
         <p>
           ListIQ is designed as the seller-side complement to the "Should I Buy This?" experience — expanding the resale intelligence ecosystem from purchase advisor to full closet lifecycle manager.
         </p>
