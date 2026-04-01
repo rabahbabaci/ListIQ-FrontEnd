@@ -30,6 +30,8 @@ export interface PlatformRecommendation {
   net_profit: NetProfit;
   sell_probability_30d: number;
   estimated_days_to_sale: number;
+  estimated_time_minutes: number;
+  effective_hourly_rate: number;
   reasoning: string;
 }
 
@@ -37,6 +39,7 @@ export interface WorthItVerdict {
   verdict: boolean | "marginal";
   best_net_profit: number;
   best_platform: string;
+  effective_hourly_rate: number;
   explanation: string;
 }
 

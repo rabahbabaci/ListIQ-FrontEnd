@@ -51,6 +51,12 @@ const WorthItVerdictComponent = ({ worthIt }: WorthItVerdictProps) => {
             </span>{" "}
             net profit on {worthIt.best_platform}
           </p>
+          <p className="text-sm text-muted-foreground mt-1">
+            Effective hourly rate:{" "}
+            <span className="font-medium text-foreground">
+              ${worthIt.effective_hourly_rate.toFixed(2)}/hr
+            </span>
+          </p>
           {isFalse && (
             <p className="mt-3 text-sm text-muted-foreground italic">
               Consider donating or gifting this item instead.
