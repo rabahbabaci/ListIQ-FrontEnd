@@ -1,8 +1,8 @@
 const BuiltForPhia = () => (
   <section className="mb-16">
-    <div className="bg-card rounded-xl border border-border shadow-sm p-8 md:p-12 max-w-3xl mx-auto">
-      <h2 className="text-2xl font-serif text-foreground text-center mb-6">Built for Phia</h2>
-      <div className="space-y-4 text-sm text-muted-foreground leading-relaxed">
+    <div className="bg-gradient-to-br from-teal-50 to-emerald-50 rounded-2xl p-8 md:p-10 border border-teal-100 max-w-3xl mx-auto">
+      <h2 className="font-serif text-2xl font-bold text-teal-800 text-center mb-6">Built for Phia</h2>
+      <div className="space-y-4 text-teal-700 leading-relaxed">
         <p>
           ListIQ is the seller-side complement to Phia's "Should I Buy This?" feature — a proposal for how Phia can expand from purchase advisor to full closet lifecycle manager.
         </p>

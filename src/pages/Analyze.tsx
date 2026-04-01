@@ -72,12 +72,12 @@ const Analyze = () => {
   const top = result?.recommendations.find((r) => r.rank === 1);
 
   return (
-    <div className="min-h-screen bg-background pt-24 pb-12">
+    <div className="min-h-screen bg-[#FAFAF8] pt-24 pb-12">
       <div className="max-w-[1200px] mx-auto px-6 md:px-12">
         {step === "upload" && (
           <>
-            <h1 className="text-4xl md:text-5xl font-serif text-foreground text-center mb-2">Analyze Your Item</h1>
-            <p className="text-center text-muted-foreground mb-10">Upload a photo or try an example to get started.</p>
+            <h1 className="font-serif text-4xl md:text-5xl font-bold text-gray-900 text-center mb-3">Analyze Your Item</h1>
+            <p className="text-center text-gray-500 text-lg mb-10">Upload a photo or try an example to get started.</p>
             <div className="max-w-2xl mx-auto">
               <PhotoUpload onFileSelected={handleFileSelected} />
               <ExampleItems labels={exampleLabels} onSelect={handleExampleSelect} />
@@ -118,7 +118,7 @@ const Analyze = () => {
             <div className="text-center pt-8">
               <button
                 onClick={resetFlow}
-                className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded-xl text-base font-medium hover:opacity-90 transition-opacity"
+                className="inline-flex items-center gap-2 bg-teal-600 hover:bg-teal-700 text-white font-medium px-6 py-3 rounded-full transition-all duration-200"
               >
                 ← Analyze Another Item
               </button>

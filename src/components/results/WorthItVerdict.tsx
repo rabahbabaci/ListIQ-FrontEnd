@@ -12,54 +12,60 @@ const WorthItVerdictComponent = ({ worthIt }: WorthItVerdictProps) => {
 
   const config = isTrue
     ? {
-        bg: "bg-emerald-50 dark:bg-emerald-950/30",
+        bg: "bg-gradient-to-r from-emerald-50 to-teal-50",
         border: "border-l-emerald-500",
-        icon: <CheckCircle2 size={32} className="text-emerald-600" />,
+        icon: <CheckCircle2 size={40} className="text-emerald-600" />,
         headline: "Worth Selling!",
+        headlineColor: "text-emerald-700",
+        profitColor: "text-emerald-700",
       }
     : isMarginal
     ? {
-        bg: "bg-amber-50 dark:bg-amber-950/30",
+        bg: "bg-gradient-to-r from-amber-50 to-yellow-50",
         border: "border-l-amber-500",
-        icon: <AlertTriangle size={32} className="text-amber-600" />,
+        icon: <AlertTriangle size={40} className="text-amber-600" />,
         headline: "Marginal — Consider Your Time",
+        headlineColor: "text-amber-700",
+        profitColor: "text-amber-700",
       }
     : {
-        bg: "bg-red-50 dark:bg-red-950/30",
+        bg: "bg-gradient-to-r from-red-50 to-orange-50",
         border: "border-l-red-500",
-        icon: <XCircle size={32} className="text-red-600" />,
+        icon: <XCircle size={40} className="text-red-600" />,
         headline: "Not Worth Listing",
+        headlineColor: "text-red-700",
+        profitColor: "text-red-700",
       };
 
   return (
     <div
-      className={`rounded-xl border-l-4 ${config.border} ${config.bg} p-8 animate-fade-in shadow-sm`}
+      className={`rounded-2xl border-l-4 ${config.border} ${config.bg} p-8 md:p-10 animate-fade-in`}
     >
       <div className="flex items-start gap-4">
         <div className="flex-shrink-0 mt-0.5">{config.icon}</div>
         <div>
-          <h2 className="text-2xl md:text-3xl font-serif text-foreground mb-2">
+          <h2 className={`text-2xl md:text-3xl font-serif font-bold ${config.headlineColor} mb-2`}>
             {config.headline}
           </h2>
-          <p className="text-muted-foreground leading-relaxed mb-3">
+          <p className="text-base text-gray-600 leading-relaxed mb-4">
             {worthIt.explanation}
           </p>
-          <p className="text-lg font-medium text-foreground">
-            Estimated{" "}
-            <span className="text-gold font-serif text-2xl">
-              ${worthIt.best_net_profit.toFixed(2)}
-            </span>{" "}
-            net profit on {worthIt.best_platform}
-          </p>
-          <p className="text-sm text-muted-foreground mt-1">
-            Effective hourly rate:{" "}
-            <span className="font-medium text-foreground">
+          <div className="flex flex-wrap items-baseline gap-x-6 gap-y-2">
+            <p className="text-lg font-medium text-gray-900">
+              Estimated{" "}
+              <span className={`font-serif text-3xl font-bold ${config.profitColor}`}>
+                ${worthIt.best_net_profit.toFixed(2)}
+              </span>{" "}
+              net on {worthIt.best_platform}
+            </p>
+            <p className="text-lg font-semibold text-gray-700">
               ${worthIt.effective_hourly_rate.toFixed(2)}/hr
-            </span>
-          </p>
+              <span className="text-sm font-normal text-gray-500 ml-1">effective rate</span>
+            </p>
+          </div>
           {isFalse && (
-            <p className="mt-3 text-sm text-muted-foreground italic">
-              Consider donating or gifting this item instead.
+            <p className="mt-3 text-sm text-red-600/70">
+              Consider donating, gifting, or bundling with other items.
             </p>
           )}
         </div>

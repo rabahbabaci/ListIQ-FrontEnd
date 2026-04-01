@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=DM+Serif+Display:ital@0;1&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -35,12 +37,12 @@
     --radius: 0.75rem;
 
     /* Brand colors */
-    --color-bg: 50 20% 98%;
-    --color-bg-card: 0 0% 100%;
-    --color-text-primary: 0 0% 10%;
-    --color-text-secondary: 220 9% 46%;
-    --color-accent: 174 85% 32%;
-    --color-accent-light: 174 85% 95%;
+    --color-bg: #FAFAF8;
+    --color-bg-card: #FFFFFF;
+    --color-text-primary: #1A1A1A;
+    --color-text-secondary: #6B7280;
+    --color-accent: #0D9488;
+    --color-accent-light: #CCFBF1;
     --color-gold: 32 89% 44%;
     --color-success: 160 85% 21%;
     --color-warning: 0 72% 51%;
@@ -65,7 +67,11 @@
   }
 
   body {
-    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'DM Sans', sans-serif;
+    background-color: #FAFAF8;
+    color: #1A1A1A;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   h1, h2, h3, h4 {

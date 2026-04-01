@@ -13,10 +13,11 @@ const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
+    <nav className="sticky top-0 z-50 bg-white border-b border-gray-100">
       <div className="max-w-[1200px] mx-auto flex items-center justify-between px-6 md:px-12 h-16">
-        <Link to="/" className="font-serif text-xl tracking-tight text-foreground">
-          List<span className="text-primary">IQ</span>
+        <Link to="/" className="text-xl tracking-tight">
+          <span className="font-serif text-gray-900">List</span>
+          <span className="font-bold text-teal-600">IQ</span>
         </Link>
 
         {/* Desktop */}
@@ -27,8 +28,8 @@ const Navbar = () => {
               to={link.to}
               className={`text-sm font-medium transition-colors ${
                 location.pathname === link.to
-                  ? "text-primary border-b-2 border-primary pb-0.5"
-                  : "text-muted-foreground hover:text-foreground"
+                  ? "text-teal-600 border-b-2 border-teal-600 pb-0.5"
+                  : "text-gray-600 hover:text-teal-600"
               }`}
             >
               {link.label}
@@ -38,7 +39,7 @@ const Navbar = () => {
 
         {/* Mobile toggle */}
         <button
-          className="md:hidden text-foreground"
+          className="md:hidden text-gray-900"
           onClick={() => setMobileOpen(!mobileOpen)}
         >
           {mobileOpen ? <X size={24} /> : <Menu size={24} />}
@@ -47,7 +48,7 @@ const Navbar = () => {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="md:hidden border-t border-border bg-background px-6 py-4 space-y-3">
+        <div className="md:hidden border-t border-gray-100 bg-white px-6 py-4 space-y-3">
           {navLinks.map((link) => (
             <Link
               key={link.to}
@@ -55,8 +56,8 @@ const Navbar = () => {
               onClick={() => setMobileOpen(false)}
               className={`block text-sm font-medium ${
                 location.pathname === link.to
-                  ? "text-primary"
-                  : "text-muted-foreground"
+                  ? "text-teal-600"
+                  : "text-gray-600"
               }`}
             >
               {link.label}

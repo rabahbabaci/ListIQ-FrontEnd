@@ -1,5 +1,5 @@
 import { PriceTiers as PriceTiersType, NetProfit } from "@/types/api";
-import { DollarSign, Zap, Scale, TrendingUp } from "lucide-react";
+import { Zap, Scale, TrendingUp } from "lucide-react";
 
 interface PriceTiersProps {
   priceTiers: PriceTiersType;
@@ -16,10 +16,10 @@ const tiers = [
 ];
 
 const PriceTiersComponent = ({ priceTiers, netProfit, platformFeePct, estimatedShipping, platform }: PriceTiersProps) => (
-  <div className="bg-card rounded-xl border border-border shadow-sm p-6 animate-fade-in" style={{ animationDelay: "0.2s" }}>
-    <div className="flex items-center gap-2 mb-4">
-      <DollarSign size={18} className="text-gold" />
-      <h3 className="text-lg font-serif text-foreground">Price Tiers on {platform}</h3>
+  <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 md:p-8 animate-fade-in" style={{ animationDelay: "0.2s" }}>
+    <div className="flex items-center gap-2 mb-6">
+      <Scale size={18} className="text-amber-600" />
+      <h3 className="font-serif text-lg font-bold text-gray-900">Price Tiers on {platform}</h3>
     </div>
 
     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -30,17 +30,22 @@ const PriceTiersComponent = ({ priceTiers, netProfit, platformFeePct, estimatedS
         return (
           <div
             key={tier.key}
-            className={`rounded-lg p-5 text-center ${
-              isMiddle ? "bg-accent border border-primary/20" : "bg-background"
+            className={`rounded-xl p-5 text-center relative ${
+              isMiddle ? "ring-2 ring-teal-500 bg-teal-50/30" : "border border-gray-100 bg-white"
             }`}
           >
-            <tier.icon size={18} className={`mx-auto mb-2 ${isMiddle ? "text-primary" : "text-muted-foreground"}`} />
-            <p className="text-xs font-medium text-muted-foreground mb-1">{tier.label}</p>
-            <p className="text-xs text-muted-foreground">Sells for ${salePrice}</p>
-            <p className="text-3xl font-serif text-gold mt-1">${net.toFixed(2)}</p>
-            <p className="text-xs font-medium text-foreground mt-0.5">in your pocket</p>
-            <p className="text-[11px] text-muted-foreground mt-2">
-              after {Math.round(platformFeePct * 100)}% {platform} fee + ${estimatedShipping.toFixed(2)} shipping
+            {isMiddle && (
+              <span className="absolute -top-2.5 left-1/2 -translate-x-1/2 bg-teal-600 text-white text-xs font-bold px-2 py-0.5 rounded-full">
+                Recommended
+              </span>
+            )}
+            <tier.icon size={18} className={`mx-auto mb-2 ${isMiddle ? "text-teal-600" : "text-gray-400"}`} />
+            <p className="text-xs font-medium text-gray-500 mb-1">{tier.label}</p>
+            <p className="text-sm text-gray-400 line-through">${salePrice}</p>
+            <p className="text-3xl md:text-4xl font-bold text-amber-600 mt-1">${net.toFixed(2)}</p>
+            <p className="text-sm font-medium text-gray-600 mt-1">in your pocket</p>
+            <p className="text-xs text-gray-400 mt-2">
+              after {Math.round(platformFeePct * 100)}% fee + ${estimatedShipping.toFixed(2)} shipping
             </p>
           </div>
         );
