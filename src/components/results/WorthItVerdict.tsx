@@ -12,28 +12,28 @@ const WorthItVerdictComponent = ({ worthIt }: WorthItVerdictProps) => {
 
   const config = isTrue
     ? {
-        bg: "bg-gradient-to-r from-emerald-50 to-teal-50",
+        bg: "bg-emerald-50",
         border: "border-l-emerald-500",
         icon: <CheckCircle2 size={40} className="text-emerald-600" />,
         headline: "Worth Selling!",
-        headlineColor: "text-emerald-700",
+        headlineColor: "text-emerald-800",
         profitColor: "text-emerald-700",
       }
     : isMarginal
     ? {
-        bg: "bg-gradient-to-r from-amber-50 to-yellow-50",
+        bg: "bg-amber-50",
         border: "border-l-amber-500",
         icon: <AlertTriangle size={40} className="text-amber-600" />,
         headline: "Marginal — Consider Your Time",
-        headlineColor: "text-amber-700",
+        headlineColor: "text-amber-800",
         profitColor: "text-amber-700",
       }
     : {
-        bg: "bg-gradient-to-r from-red-50 to-orange-50",
+        bg: "bg-red-50",
         border: "border-l-red-500",
         icon: <XCircle size={40} className="text-red-600" />,
         headline: "Not Worth Listing",
-        headlineColor: "text-red-700",
+        headlineColor: "text-red-800",
         profitColor: "text-red-700",
       };
 
@@ -44,23 +44,23 @@ const WorthItVerdictComponent = ({ worthIt }: WorthItVerdictProps) => {
       <div className="flex items-start gap-4">
         <div className="flex-shrink-0 mt-0.5">{config.icon}</div>
         <div>
-          <h2 className={`text-2xl md:text-3xl font-serif font-bold ${config.headlineColor} mb-2`}>
+          <h2 className={`font-serif text-2xl md:text-3xl font-bold ${config.headlineColor} mb-2`}>
             {config.headline}
           </h2>
-          <p className="text-base text-gray-600 leading-relaxed mb-4">
+          <p className="text-base text-zinc-600 leading-relaxed mb-4">
             {worthIt.explanation}
           </p>
           <div className="flex flex-wrap items-baseline gap-x-6 gap-y-2">
-            <p className="text-lg font-medium text-gray-900">
+            <p className="text-lg font-medium text-zinc-900">
               Estimated{" "}
               <span className={`font-serif text-3xl font-bold ${config.profitColor}`}>
                 ${worthIt.best_net_profit.toFixed(2)}
               </span>{" "}
               net on {worthIt.best_platform}
             </p>
-            <p className="text-lg font-semibold text-gray-700">
+            <p className="text-lg font-semibold text-zinc-700">
               ${worthIt.effective_hourly_rate.toFixed(2)}/hr
-              <span className="text-sm font-normal text-gray-500 ml-1">effective rate</span>
+              <span className="text-sm font-normal text-zinc-400 ml-1">effective rate</span>
             </p>
           </div>
           {isFalse && (

@@ -4,7 +4,7 @@ import HowItWorks from "@/components/landing/HowItWorks";
 import Footer from "@/components/layout/Footer";
 
 const Landing = () => (
-  <div className="min-h-screen bg-[#FAFAF8]">
+  <div className="min-h-screen bg-[#FAFAFA]">
     <HeroSection />
     <StatsBar />
     <HowItWorks />
