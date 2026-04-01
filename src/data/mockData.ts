@@ -21,6 +21,8 @@ export const mockDenimJacket: AnalysisResult = {
       net_profit: { fast_sale: 31.81, balanced: 43.51, max_revenue: 55.21 },
       sell_probability_30d: 0.82,
       estimated_days_to_sale: 11,
+      estimated_time_minutes: 38,
+      effective_hourly_rate: 68.70,
       reasoning: "Denim jackets sell 2.1x faster on Depop at 15% higher average price. Depop's younger demographic drives strong demand for vintage and branded denim.",
     },
     {
@@ -33,6 +35,8 @@ export const mockDenimJacket: AnalysisResult = {
       net_profit: { fast_sale: 22.73, balanced: 30.73, max_revenue: 41.93 },
       sell_probability_30d: 0.68,
       estimated_days_to_sale: 18,
+      estimated_time_minutes: 40,
+      effective_hourly_rate: 46.10,
       reasoning: "Poshmark has steady demand for Levi's but longer sell-through times. Higher 20% fee significantly cuts into profit. Social sharing features help visibility.",
     },
     {
@@ -45,6 +49,8 @@ export const mockDenimJacket: AnalysisResult = {
       net_profit: { fast_sale: 19.34, balanced: 29.78, max_revenue: 41.96 },
       sell_probability_30d: 0.54,
       estimated_days_to_sale: 24,
+      estimated_time_minutes: 42,
+      effective_hourly_rate: 42.54,
       reasoning: "eBay has the largest audience but lower conversion for fashion items. Best for rare or collectible Levi's pieces rather than standard styles.",
     },
   ],
@@ -52,7 +58,8 @@ export const mockDenimJacket: AnalysisResult = {
     verdict: true,
     best_net_profit: 55.21,
     best_platform: "Depop",
-    explanation: "Worth listing — estimated $43–55 net profit on Depop after fees and shipping",
+    effective_hourly_rate: 68.70,
+    explanation: "Worth listing — estimated $43–55 net profit on Depop after fees and shipping. Your effective rate: $68.70/hr.",
   },
 };
 
@@ -77,6 +84,8 @@ export const mockSneakers: AnalysisResult = {
       net_profit: { fast_sale: 38.35, balanced: 53.14, max_revenue: 73.15 },
       sell_probability_30d: 0.88,
       estimated_days_to_sale: 8,
+      estimated_time_minutes: 35,
+      effective_hourly_rate: 91.10,
       reasoning: "Nike sneakers have the highest sell-through rate on eBay. Authenticity guarantee program builds buyer confidence and drives premium prices.",
     },
     {
@@ -89,6 +98,8 @@ export const mockSneakers: AnalysisResult = {
       net_profit: { fast_sale: 34.70, balanced: 50.00, max_revenue: 68.00 },
       sell_probability_30d: 0.75,
       estimated_days_to_sale: 14,
+      estimated_time_minutes: 38,
+      effective_hourly_rate: 78.95,
       reasoning: "Strong streetwear audience on Depop, but slightly lower price ceiling than eBay for mainstream Nike models.",
     },
     {
@@ -101,6 +112,8 @@ export const mockSneakers: AnalysisResult = {
       net_profit: { fast_sale: 25.93, balanced: 38.73, max_revenue: 54.73 },
       sell_probability_30d: 0.61,
       estimated_days_to_sale: 21,
+      estimated_time_minutes: 40,
+      effective_hourly_rate: 58.10,
       reasoning: "Poshmark's audience skews toward women's fashion. Men's sneakers have lower visibility and slower turnover here.",
     },
   ],
@@ -108,7 +121,8 @@ export const mockSneakers: AnalysisResult = {
     verdict: true,
     best_net_profit: 73.15,
     best_platform: "eBay",
-    explanation: "Worth listing — estimated $53–73 net profit on eBay after fees and shipping",
+    effective_hourly_rate: 91.10,
+    explanation: "Worth listing — estimated $53–73 net profit on eBay after fees and shipping. Your effective rate: $91.10/hr.",
   },
 };
 
@@ -133,6 +147,8 @@ export const mockHandbag: AnalysisResult = {
       net_profit: { fast_sale: 108.33, balanced: 140.33, max_revenue: 172.33 },
       sell_probability_30d: 0.91,
       estimated_days_to_sale: 6,
+      estimated_time_minutes: 40,
+      effective_hourly_rate: 210.50,
       reasoning: "Coach handbags are Poshmark's strongest category. NWT condition commands a significant premium, and Poshmark's authentication builds buyer trust.",
     },
     {
@@ -145,6 +161,8 @@ export const mockHandbag: AnalysisResult = {
       net_profit: { fast_sale: 103.60, balanced: 138.40, max_revenue: 173.20 },
       sell_probability_30d: 0.78,
       estimated_days_to_sale: 12,
+      estimated_time_minutes: 42,
+      effective_hourly_rate: 197.71,
       reasoning: "eBay's broad reach means more potential buyers, but prices trend slightly lower without Poshmark's curated fashion audience.",
     },
     {
@@ -157,6 +175,8 @@ export const mockHandbag: AnalysisResult = {
       net_profit: { fast_sale: 90.50, balanced: 122.00, max_revenue: 153.50 },
       sell_probability_30d: 0.52,
       estimated_days_to_sale: 22,
+      estimated_time_minutes: 38,
+      effective_hourly_rate: 192.63,
       reasoning: "Depop's younger audience has lower budget for premium handbags. Coach has moderate appeal here, but sell-through is significantly slower.",
     },
   ],
@@ -164,8 +184,73 @@ export const mockHandbag: AnalysisResult = {
     verdict: true,
     best_net_profit: 172.33,
     best_platform: "Poshmark",
-    explanation: "Definitely worth listing — estimated $140–172 net profit on Poshmark after fees and shipping",
+    effective_hourly_rate: 210.50,
+    explanation: "Definitely worth listing — estimated $140–172 net profit on Poshmark after fees and shipping. Your effective rate: $210.50/hr.",
   },
 };
 
-export const allMockItems = [mockDenimJacket, mockSneakers, mockHandbag];
+// THIS IS THE CRITICAL "DON'T SELL" EXAMPLE — proves the tool is honest
+export const mockTShirt: AnalysisResult = {
+  item: {
+    category: "T-Shirt",
+    brand: "H&M",
+    size: "L",
+    condition: "Good",
+    color: "Black",
+    estimated_retail: 14.99,
+    image_url: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400",
+  },
+  recommendations: [
+    {
+      platform: "Depop",
+      rank: 1,
+      fit_score: 4.2,
+      price_tiers: { fast_sale: 8, balanced: 12, max_revenue: 15 },
+      platform_fee_pct: 0.10,
+      estimated_shipping: 4.99,
+      net_profit: { fast_sale: 2.21, balanced: 5.81, max_revenue: 8.51 },
+      sell_probability_30d: 0.35,
+      estimated_days_to_sale: 28,
+      estimated_time_minutes: 35,
+      effective_hourly_rate: 9.96,
+      reasoning: "Basic fast-fashion tees have very low demand on Depop. High competition from similar items drives prices down.",
+    },
+    {
+      platform: "Poshmark",
+      rank: 2,
+      fit_score: 3.8,
+      price_tiers: { fast_sale: 7, balanced: 10, max_revenue: 13 },
+      platform_fee_pct: 0.20,
+      estimated_shipping: 7.67,
+      net_profit: { fast_sale: -2.27, balanced: 0.33, max_revenue: 2.93 },
+      sell_probability_30d: 0.22,
+      estimated_days_to_sale: 35,
+      estimated_time_minutes: 40,
+      effective_hourly_rate: 0.50,
+      reasoning: "Poshmark's 20% fee and flat shipping rate make low-price items unprofitable. At $10, you'd net $0.33 — less than the cost of a mailer.",
+    },
+    {
+      platform: "eBay",
+      rank: 3,
+      fit_score: 3.1,
+      price_tiers: { fast_sale: 6, balanced: 9, max_revenue: 12 },
+      platform_fee_pct: 0.13,
+      estimated_shipping: 5.50,
+      net_profit: { fast_sale: -0.28, balanced: 2.67, max_revenue: 6.06 },
+      sell_probability_30d: 0.18,
+      estimated_days_to_sale: 40,
+      estimated_time_minutes: 42,
+      effective_hourly_rate: 3.81,
+      reasoning: "eBay has massive competition for basic tees. Listing fees and low sale probability make this a losing proposition.",
+    },
+  ],
+  worth_it: {
+    verdict: false,
+    best_net_profit: 5.81,
+    best_platform: "Depop",
+    effective_hourly_rate: 9.96,
+    explanation: "Not worth listing — you'd earn ~$5.81 net profit for ~35 minutes of work ($9.96/hr effective rate, below minimum wage in most states). Consider donating instead.",
+  },
+};
+
+export const allMockItems = [mockDenimJacket, mockSneakers, mockHandbag, mockTShirt];

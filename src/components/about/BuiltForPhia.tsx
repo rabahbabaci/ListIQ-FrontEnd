@@ -1,12 +1,24 @@
 const BuiltForPhia = () => (
   <section className="mb-16">
-    <div className="bg-card rounded-xl border border-border shadow-sm p-8 md:p-12 max-w-3xl mx-auto text-center">
-      <h2 className="text-2xl font-serif text-foreground mb-4">Built for Phia</h2>
-      <p className="text-sm text-muted-foreground leading-relaxed max-w-xl mx-auto">
-        ListIQ is the seller-side mirror of Phia's "Should I Buy This?" feature. While Phia helps buyers
-        make informed purchase decisions, ListIQ empowers sellers with data-driven insights on where to list,
-        how to price, and when to expect a sale — closing the loop on the resale intelligence ecosystem.
-      </p>
+    <div className="bg-card rounded-xl border border-border shadow-sm p-8 md:p-12 max-w-3xl mx-auto">
+      <h2 className="text-2xl font-serif text-foreground text-center mb-6">Built for Phia</h2>
+      <div className="space-y-4 text-sm text-muted-foreground leading-relaxed">
+        <p>
+          ListIQ is the seller-side complement to Phia's "Should I Buy This?" feature — a proposal for how Phia can expand from purchase advisor to full closet lifecycle manager.
+        </p>
+        <p>
+          While Phia helps 1M+ users make smarter purchasing decisions, sellers still lack data-driven guidance on where to list, how to price, and whether selling is even worth their time. ListIQ fills that gap using cross-platform intelligence from 10,000+ real sold listings.
+        </p>
+        <p>
+          Phia already sees what 1M+ buyers are searching for. That demand data can be flipped to activate sellers — notifying users when buyers are looking for items they own, turning passive closets into active inventory.
+        </p>
+        <p>
+          For Phia, this means: new revenue streams beyond affiliate commissions, higher user retention as shoppers become sellers, and deeper leverage of their 250M+ item data moat.
+        </p>
+        <p>
+          While built as a proposal for Phia, the underlying analysis framework is platform-agnostic — any marketplace could use the same models to match seller supply with buyer demand.
+        </p>
+      </div>
     </div>
   </section>
 );

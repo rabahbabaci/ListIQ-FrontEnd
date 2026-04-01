@@ -3,7 +3,7 @@ interface ExampleItemsProps {
   onSelect: (index: number) => void;
 }
 
-const emojis = ["🧥", "👟", "👜"];
+const emojis = ["🧥", "👟", "👜", "👕"];
 
 const ExampleItems = ({ labels, onSelect }: ExampleItemsProps) => (
   <div className="mt-6">

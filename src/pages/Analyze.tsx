@@ -13,7 +13,7 @@ import Footer from "@/components/layout/Footer";
 import { allMockItems } from "@/data/mockData";
 import { AnalysisResult, AIDetectedAttributes } from "@/types/api";
 
-const exampleLabels = ["Denim Jacket", "Sneakers", "Handbag"];
+const exampleLabels = ["Denim Jacket", "Sneakers", "Handbag", "T-Shirt"];
 
 type Step = "upload" | "confirm" | "loading" | "results";
 
