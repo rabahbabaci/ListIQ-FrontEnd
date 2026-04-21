@@ -33,6 +33,20 @@ function getSizesForCategory(category: string): string[] {
   return topSizes;
 }
 
+const normalizeCategory = (cat: string): string =>
+  cat.split(" ").map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()).join(" ");
+
+const normalizeCondition = (cond: string): string => {
+  const mapping: Record<string, string> = {
+    "like new": "Like New",
+    "new with tags": "New With Tags",
+    "good": "Good",
+    "fair": "Fair",
+    "nwt": "New With Tags",
+  };
+  return mapping[cond.toLowerCase()] ?? cond;
+};
+
 const AiBadge = () => (
   <span className="inline-flex items-center gap-1 text-[10px] font-medium text-primary bg-accent px-2 py-0.5 rounded-full">
     <Sparkles size={10} /> AI Detected
@@ -40,9 +54,9 @@ const AiBadge = () => (
 );
 
 const ConfirmDetails = ({ imageUrl, detected, onConfirm, onBack }: ConfirmDetailsProps) => {
-  const [category, setCategory] = useState(detected.category);
+  const [category, setCategory] = useState(normalizeCategory(detected.category));
   const [color, setColor] = useState(detected.color);
-  const [condition, setCondition] = useState(detected.condition);
+  const [condition, setCondition] = useState(normalizeCondition(detected.condition));
   const [brand, setBrand] = useState("");
   const [size, setSize] = useState("");
   const [brandSearch, setBrandSearch] = useState("");
@@ -50,9 +64,9 @@ const ConfirmDetails = ({ imageUrl, detected, onConfirm, onBack }: ConfirmDetail
 
   const initialAIFields = useMemo(
     () => ({
-      category: detected.category,
+      category: normalizeCategory(detected.category),
       color: detected.color,
-      condition: detected.condition,
+      condition: normalizeCondition(detected.condition),
     }),
     // eslint-disable-next-line react-hooks/exhaustive-deps
     []
