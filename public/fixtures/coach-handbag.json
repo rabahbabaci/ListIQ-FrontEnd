@@ -1,0 +1,87 @@
+{
+  "item": {
+    "category": "handbag",
+    "brand": "Coach",
+    "size": "OS",
+    "condition": "Good",
+    "color": "black",
+    "estimated_retail": 350.0
+  },
+  "recommendations": [
+    {
+      "platform": "Depop",
+      "rank": 1,
+      "fit_score": 10.0,
+      "price_tiers": {
+        "fast_sale": 48,
+        "balanced": 62,
+        "max_revenue": 132
+      },
+      "platform_fee_pct": 0.1,
+      "estimated_shipping": 5.99,
+      "net_profit": {
+        "fast_sale": 37.21,
+        "balanced": 49.81,
+        "max_revenue": 112.81
+      },
+      "estimated_time_minutes": 35,
+      "effective_hourly_rate": 85.39,
+      "sell_probability_30d": 1.0,
+      "estimated_days_to_sale": 24,
+      "reasoning": "Best overall value for handbags on Depop \u2014 $50 net profit in ~24 days (listed-price proxy)"
+    },
+    {
+      "platform": "eBay",
+      "rank": 2,
+      "fit_score": 9.8,
+      "price_tiers": {
+        "fast_sale": 27,
+        "balanced": 63,
+        "max_revenue": 145
+      },
+      "platform_fee_pct": 0.13,
+      "estimated_shipping": 5.99,
+      "net_profit": {
+        "fast_sale": 17.5,
+        "balanced": 48.82,
+        "max_revenue": 120.16
+      },
+      "estimated_time_minutes": 35,
+      "effective_hourly_rate": 83.69,
+      "sell_probability_30d": 1.0,
+      "estimated_days_to_sale": 16,
+      "reasoning": "eBay offers faster sell-through (~16 days, 8 days quicker) but 13% fee leaves $1 less net profit"
+    },
+    {
+      "platform": "Poshmark",
+      "rank": 3,
+      "fit_score": 9.4,
+      "price_tiers": {
+        "fast_sale": 28,
+        "balanced": 66,
+        "max_revenue": 155
+      },
+      "platform_fee_pct": 0.2,
+      "estimated_shipping": 5.99,
+      "net_profit": {
+        "fast_sale": 16.41,
+        "balanced": 46.81,
+        "max_revenue": 118.01
+      },
+      "estimated_time_minutes": 35,
+      "effective_hourly_rate": 80.25,
+      "sell_probability_30d": 1.0,
+      "estimated_days_to_sale": 22,
+      "reasoning": "Poshmark offers faster sell-through (~22 days, 2 days quicker) but 20% fee leaves $3 less net profit"
+    }
+  ],
+  "worth_it": {
+    "verdict": true,
+    "best_net_profit": 49.81,
+    "best_platform": "Depop",
+    "effective_hourly_rate": 85.39,
+    "explanation": "Worth listing \u2014 estimated $37-113 net profit on Depop after fees and shipping"
+  },
+  "demo_item_id": "coach-handbag",
+  "demo_narrative_purpose": "Surprising routing \u2014 Depop beats eBay/Poshmark for Coach (lowest fees win on mid-range)"
+}

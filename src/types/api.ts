@@ -47,6 +47,8 @@ export interface AnalysisResult {
   item: ItemData;
   recommendations: PlatformRecommendation[];
   worth_it: WorthItVerdict;
+  demo_item_id?: string;
+  demo_narrative_purpose?: string;
 }
 
 export interface AIDetectedAttributes {
@@ -55,4 +57,13 @@ export interface AIDetectedAttributes {
   condition: string;
   style?: string;
   image_url?: string;
+}
+
+export interface FixtureMeta {
+  demo_item_id: string;
+  narrative_purpose: string;
+  category: string;
+  brand: string;
+  best_platform: string;
+  verdict: boolean | "marginal";
 }

@@ -1,0 +1,87 @@
+{
+  "item": {
+    "category": "midi dress",
+    "brand": "Free People",
+    "size": "S",
+    "condition": "New",
+    "color": "white",
+    "estimated_retail": 128.0
+  },
+  "recommendations": [
+    {
+      "platform": "Poshmark",
+      "rank": 1,
+      "fit_score": 10.0,
+      "price_tiers": {
+        "fast_sale": 31,
+        "balanced": 44,
+        "max_revenue": 68
+      },
+      "platform_fee_pct": 0.2,
+      "estimated_shipping": 5.99,
+      "net_profit": {
+        "fast_sale": 18.81,
+        "balanced": 29.21,
+        "max_revenue": 48.41
+      },
+      "estimated_time_minutes": 35,
+      "effective_hourly_rate": 50.07,
+      "sell_probability_30d": 1.0,
+      "estimated_days_to_sale": 23,
+      "reasoning": "Midi Dresss nets $4 more than Depop on Poshmark after 20% fee"
+    },
+    {
+      "platform": "Depop",
+      "rank": 2,
+      "fit_score": 8.7,
+      "price_tiers": {
+        "fast_sale": 19,
+        "balanced": 35,
+        "max_revenue": 63
+      },
+      "platform_fee_pct": 0.1,
+      "estimated_shipping": 5.99,
+      "net_profit": {
+        "fast_sale": 11.11,
+        "balanced": 25.51,
+        "max_revenue": 50.71
+      },
+      "estimated_time_minutes": 35,
+      "effective_hourly_rate": 43.73,
+      "sell_probability_30d": 1.0,
+      "estimated_days_to_sale": 25,
+      "reasoning": "Depop has lower fees (10%) but estimated net profit is $4 less than Poshmark (listed-price proxy)"
+    },
+    {
+      "platform": "eBay",
+      "rank": 3,
+      "fit_score": 6.6,
+      "price_tiers": {
+        "fast_sale": 14,
+        "balanced": 29,
+        "max_revenue": 55
+      },
+      "platform_fee_pct": 0.13,
+      "estimated_shipping": 5.99,
+      "net_profit": {
+        "fast_sale": 6.19,
+        "balanced": 19.24,
+        "max_revenue": 41.86
+      },
+      "estimated_time_minutes": 35,
+      "effective_hourly_rate": 32.98,
+      "sell_probability_30d": 1.0,
+      "estimated_days_to_sale": 17,
+      "reasoning": "eBay offers faster sell-through (~17 days, 6 days quicker) but 13% fee leaves $10 less net profit"
+    }
+  ],
+  "worth_it": {
+    "verdict": true,
+    "best_net_profit": 29.21,
+    "best_platform": "Poshmark",
+    "effective_hourly_rate": 50.07,
+    "explanation": "Worth listing \u2014 estimated $19-48 net profit on Poshmark after fees and shipping"
+  },
+  "demo_item_id": "free-people-midi-dress",
+  "demo_narrative_purpose": "Poshmark wins again \u2014 brand-audience alignment"
+}

@@ -1,3 +1,6 @@
+// DEPRECATED: This file is no longer imported. Fixture data now comes from
+// public/fixtures/*.json via src/data/fixtureLoader.ts. Kept as a reference
+// for the data shape. Safe to delete after demo day if no regressions.
 import { AnalysisResult } from "@/types/api";
 
 export const mockDenimJacket: AnalysisResult = {

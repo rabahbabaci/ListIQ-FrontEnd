@@ -10,46 +10,53 @@ import PriceTiersComponent from "@/components/results/PriceTiers";
 import SellEstimate from "@/components/results/SellEstimate";
 import WhyThisPlatform from "@/components/results/WhyThisPlatform";
 import Footer from "@/components/layout/Footer";
-import { allMockItems } from "@/data/mockData";
+import { loadFixture } from "@/data/fixtureLoader";
 import { AnalysisResult, AIDetectedAttributes } from "@/types/api";
 
-const exampleLabels = ["Denim Jacket", "Sneakers", "Handbag", "T-Shirt"];
+const exampleLabels = ["Levi's Denim Jacket", "Coach Handbag", "H&M Midi Dress", "Old Navy Denim Jacket"];
+const exampleDemoIds = ["levis-denim-jacket", "coach-handbag", "handm-midi-dress", "old-navy-denim-jacket"];
 
 type Step = "upload" | "confirm" | "loading" | "results";
 
 const Analyze = () => {
   const [step, setStep] = useState<Step>("upload");
-  const [selectedIndex, setSelectedIndex] = useState<number>(0);
   const [result, setResult] = useState<AnalysisResult | null>(null);
   const [detected, setDetected] = useState<AIDetectedAttributes | null>(null);
   const resultsRef = useRef<HTMLDivElement>(null);
 
-  const handleExampleSelect = (index: number) => {
-    setSelectedIndex(index);
-    const item = allMockItems[index].item;
-    setDetected({
-      category: item.category,
-      color: item.color,
-      condition: item.condition,
-      image_url: item.image_url,
-    });
-    setStep("confirm");
+  const handleExampleSelect = async (index: number) => {
+    try {
+      const fixture = await loadFixture(exampleDemoIds[index]);
+      setResult(fixture);
+      setDetected({
+        category: fixture.item.category,
+        color: fixture.item.color,
+        condition: fixture.item.condition,
+        image_url: fixture.item.image_url,
+      });
+      setStep("confirm");
+    } catch (err) {
+      console.error("Failed to load fixture:", err);
+    }
   };
 
-  const handleFileSelected = (_file: File) => {
-    setSelectedIndex(0);
-    const item = allMockItems[0].item;
-    setDetected({
-      category: item.category,
-      color: item.color,
-      condition: item.condition,
-      image_url: item.image_url,
-    });
-    setStep("confirm");
+  const handleFileSelected = async (_file: File) => {
+    try {
+      const fixture = await loadFixture(exampleDemoIds[0]);
+      setResult(fixture);
+      setDetected({
+        category: fixture.item.category,
+        color: fixture.item.color,
+        condition: fixture.item.condition,
+        image_url: fixture.item.image_url,
+      });
+      setStep("confirm");
+    } catch (err) {
+      console.error("Failed to load fixture:", err);
+    }
   };
 
   const handleConfirm = () => {
-    setResult(allMockItems[selectedIndex]);
     setStep("loading");
   };
 
