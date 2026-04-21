@@ -10,7 +10,7 @@ import PriceTiersComponent from "@/components/results/PriceTiers";
 import SellEstimate from "@/components/results/SellEstimate";
 import WhyThisPlatform from "@/components/results/WhyThisPlatform";
 import Footer from "@/components/layout/Footer";
-import { loadFixture } from "@/data/fixtureLoader";
+import { loadFixture, matchFilenameToFixture } from "@/data/fixtureLoader";
 import { AnalysisResult, AIDetectedAttributes } from "@/types/api";
 
 const exampleLabels = ["Levi's Denim Jacket", "Coach Handbag", "H&M Midi Dress", "Old Navy Denim Jacket"];
@@ -22,6 +22,7 @@ const Analyze = () => {
   const [step, setStep] = useState<Step>("upload");
   const [result, setResult] = useState<AnalysisResult | null>(null);
   const [detected, setDetected] = useState<AIDetectedAttributes | null>(null);
+  const [uploadWarning, setUploadWarning] = useState<string | null>(null);
   const resultsRef = useRef<HTMLDivElement>(null);
 
   const handleExampleSelect = async (index: number) => {
@@ -40,19 +41,34 @@ const Analyze = () => {
     }
   };
 
-  const handleFileSelected = async (_file: File) => {
+  const handleFileSelected = async (file: File) => {
     try {
-      const fixture = await loadFixture(exampleDemoIds[0]);
+      const uploadedImageUrl = URL.createObjectURL(file);
+
+      const matchedId = await matchFilenameToFixture(file.name);
+      const fixtureId = matchedId ?? exampleDemoIds[0];
+
+      const fixture = await loadFixture(fixtureId);
+      fixture.item.image_url = uploadedImageUrl;
+
       setResult(fixture);
       setDetected({
         category: fixture.item.category,
         color: fixture.item.color,
         condition: fixture.item.condition,
-        image_url: fixture.item.image_url,
+        image_url: uploadedImageUrl,
       });
+
+      setUploadWarning(
+        matchedId
+          ? null
+          : `Couldn't match "${file.name}" to a known item. Showing default analysis.`
+      );
+
       setStep("confirm");
     } catch (err) {
-      console.error("Failed to load fixture:", err);
+      console.error("Failed to process upload:", err);
+      setUploadWarning("Failed to process the uploaded file. Try again.");
     }
   };
 
@@ -71,9 +87,13 @@ const Analyze = () => {
   }, [step]);
 
   const resetFlow = () => {
+    if (detected?.image_url?.startsWith("blob:")) {
+      URL.revokeObjectURL(detected.image_url);
+    }
     setStep("upload");
     setResult(null);
     setDetected(null);
+    setUploadWarning(null);
   };
 
   const top = result?.recommendations.find((r) => r.rank === 1);
@@ -93,12 +113,19 @@ const Analyze = () => {
         )}
 
         {step === "confirm" && detected && (
-          <ConfirmDetails
-            imageUrl={detected.image_url}
-            detected={detected}
-            onConfirm={handleConfirm}
-            onBack={() => setStep("upload")}
-          />
+          <>
+            {uploadWarning && (
+              <div className="max-w-4xl mx-auto mb-4 rounded-xl border-l-4 border-amber-500 bg-amber-50 p-4">
+                <p className="text-sm text-amber-800">{uploadWarning}</p>
+              </div>
+            )}
+            <ConfirmDetails
+              imageUrl={detected.image_url}
+              detected={detected}
+              onConfirm={handleConfirm}
+              onBack={() => setStep("upload")}
+            />
+          </>
         )}
 
         {step === "loading" && <LoadingSequence onComplete={handleLoadingComplete} />}

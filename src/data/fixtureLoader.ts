@@ -42,3 +42,19 @@ export async function loadFixture(demoItemId: string): Promise<AnalysisResult> {
 
   return result;
 }
+
+export async function matchFilenameToFixture(filename: string): Promise<string | null> {
+  const slug = filename
+    .replace(/\.[^/.]+$/, "")
+    .toLowerCase()
+    .trim();
+
+  try {
+    const index = await loadFixtureIndex();
+    const match = index.find((f) => f.demo_item_id === slug);
+    return match ? match.demo_item_id : null;
+  } catch (err) {
+    console.error("Failed to match filename:", err);
+    return null;
+  }
+}
