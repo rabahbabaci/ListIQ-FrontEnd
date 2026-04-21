@@ -2,6 +2,7 @@ import { useState, useCallback, useRef, useEffect } from "react";
 import PhotoUpload from "@/components/analyze/PhotoUpload";
 import ExampleItems from "@/components/analyze/ExampleItems";
 import ConfirmDetails from "@/components/analyze/ConfirmDetails";
+import AnalyzingPhoto from "@/components/analyze/AnalyzingPhoto";
 import LoadingSequence from "@/components/analyze/LoadingSequence";
 import WorthItVerdictComponent from "@/components/results/WorthItVerdict";
 import ItemCard from "@/components/results/ItemCard";
@@ -16,7 +17,7 @@ import { AnalysisResult, AIDetectedAttributes } from "@/types/api";
 const exampleLabels = ["Levi's Denim Jacket", "Coach Handbag", "H&M Midi Dress", "Old Navy Denim Jacket"];
 const exampleDemoIds = ["levis-denim-jacket", "coach-handbag", "handm-midi-dress", "old-navy-denim-jacket"];
 
-type Step = "upload" | "confirm" | "loading" | "results";
+type Step = "upload" | "analyzing" | "confirm" | "loading" | "results";
 
 const Analyze = () => {
   const [step, setStep] = useState<Step>("upload");
@@ -65,7 +66,7 @@ const Analyze = () => {
           : `Couldn't match "${file.name}" to a known item. Showing default analysis.`
       );
 
-      setStep("confirm");
+      setStep("analyzing");
     } catch (err) {
       console.error("Failed to process upload:", err);
       setUploadWarning("Failed to process the uploaded file. Try again.");
@@ -110,6 +111,13 @@ const Analyze = () => {
               <ExampleItems labels={exampleLabels} onSelect={handleExampleSelect} />
             </div>
           </>
+        )}
+
+        {step === "analyzing" && detected?.image_url && (
+          <AnalyzingPhoto
+            imageUrl={detected.image_url}
+            onComplete={() => setStep("confirm")}
+          />
         )}
 
         {step === "confirm" && detected && (
