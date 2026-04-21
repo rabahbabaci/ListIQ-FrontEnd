@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { AIDetectedAttributes } from "@/types/api";
-import { ArrowLeft, Sparkles } from "lucide-react";
+import { AlertTriangle, ArrowLeft, Sparkles } from "lucide-react";
 
 interface ConfirmDetailsProps {
   imageUrl?: string;
@@ -48,12 +48,27 @@ const ConfirmDetails = ({ imageUrl, detected, onConfirm, onBack }: ConfirmDetail
   const [brandSearch, setBrandSearch] = useState("");
   const [showBrandDropdown, setShowBrandDropdown] = useState(false);
 
+  const initialAIFields = useMemo(
+    () => ({
+      category: detected.category,
+      color: detected.color,
+      condition: detected.condition,
+    }),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    []
+  );
+
+  const aiFieldsEdited =
+    category !== initialAIFields.category ||
+    color !== initialAIFields.color ||
+    condition !== initialAIFields.condition;
+
   const sizes = getSizesForCategory(category);
   const filteredBrands = brands.filter((b) =>
     b.toLowerCase().includes(brandSearch.toLowerCase())
   );
 
-  const canSubmit = brand.trim() !== "" && size.trim() !== "";
+  const canSubmit = brand.trim() !== "" && size.trim() !== "" && !aiFieldsEdited;
 
   const handleSubmit = () => {
     if (!canSubmit) return;
@@ -190,6 +205,29 @@ const ConfirmDetails = ({ imageUrl, detected, onConfirm, onBack }: ConfirmDetail
                 </select>
               </div>
             </div>
+
+            {aiFieldsEdited && (
+              <div className="mt-6 rounded-xl border-l-4 border-amber-500 bg-amber-50 p-4">
+                <div className="flex items-start gap-3">
+                  <AlertTriangle className="w-5 h-5 text-amber-600 mt-0.5 flex-shrink-0" />
+                  <div>
+                    <p className="font-semibold text-amber-900 mb-1">
+                      Item details changed
+                    </p>
+                    <p className="text-sm text-amber-800">
+                      You've edited what our AI detected. To get an accurate analysis for the updated item, please upload a new photo.
+                    </p>
+                    <button
+                      type="button"
+                      onClick={onBack}
+                      className="text-sm font-medium text-amber-900 underline hover:no-underline mt-2"
+                    >
+                      ← Upload a new photo
+                    </button>
+                  </div>
+                </div>
+              </div>
+            )}
 
             <button
               onClick={handleSubmit}
