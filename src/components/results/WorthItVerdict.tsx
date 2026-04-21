@@ -44,29 +44,36 @@ const WorthItVerdictComponent = ({ worthIt }: WorthItVerdictProps) => {
       <div className="flex items-start gap-4">
         <div className="flex-shrink-0 mt-0.5">{config.icon}</div>
         <div>
-          <h2 className={`font-serif text-2xl md:text-3xl font-bold ${config.headlineColor} mb-2`}>
+          <h2 className={`font-serif text-2xl md:text-3xl font-bold ${config.headlineColor} mb-3`}>
             {config.headline}
           </h2>
-          <p className="text-base text-stone-600 leading-relaxed mb-4">
-            {worthIt.explanation}
-          </p>
-          <div className="flex flex-wrap items-baseline gap-x-6 gap-y-2">
-            <p className="text-lg font-medium text-stone-900">
-              Estimated{" "}
-              <span className={`font-serif text-3xl font-bold ${config.profitColor}`}>
-                ${worthIt.best_net_profit.toFixed(2)}
-              </span>{" "}
-              net on {worthIt.best_platform}
-            </p>
-            <p className="text-lg font-semibold text-stone-700">
-              ${worthIt.effective_hourly_rate.toFixed(2)}/hr
-              <span className="text-sm font-normal text-stone-400 ml-1">effective rate</span>
-            </p>
-          </div>
-          {isFalse && (
-            <p className="mt-3 text-sm text-red-600/70">
-              Consider donating, gifting, or bundling with other items.
-            </p>
+          {isFalse ? (
+            <>
+              <p className="text-base text-stone-700 leading-relaxed">
+                Only{" "}
+                <span className={`font-serif text-2xl font-bold ${config.profitColor}`}>
+                  ${worthIt.effective_hourly_rate.toFixed(2)}/hr
+                </span>{" "}
+                effective rate — below minimum wage in most states.
+              </p>
+              <p className="mt-2 text-sm text-red-600/80">
+                Consider donating or gifting instead.
+              </p>
+            </>
+          ) : (
+            <div className="flex flex-wrap items-baseline gap-x-6 gap-y-2">
+              <p className="text-lg font-medium text-stone-900">
+                Estimated{" "}
+                <span className={`font-serif text-3xl font-bold ${config.profitColor}`}>
+                  ${Math.round(worthIt.best_net_profit)}
+                </span>{" "}
+                net on {worthIt.best_platform}
+              </p>
+              <p className="text-lg font-semibold text-stone-700">
+                ${worthIt.effective_hourly_rate.toFixed(2)}/hr
+                <span className="text-sm font-normal text-stone-400 ml-1">effective rate</span>
+              </p>
+            </div>
           )}
         </div>
       </div>

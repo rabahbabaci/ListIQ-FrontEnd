@@ -56,7 +56,7 @@ const PlatformRanking = ({ recommendations }: PlatformRankingProps) => {
             <p className="text-xs text-stone-500">to sell</p>
           </div>
           <div>
-            <p className="font-serif text-2xl font-bold text-[#E5A22D]">${top.effective_hourly_rate.toFixed(0)}/hr</p>
+            <p className="font-serif text-2xl font-bold text-[#E5A22D]">${top.effective_hourly_rate.toFixed(2)}/hr</p>
             <p className="text-xs text-stone-500">effective rate</p>
           </div>
         </div>
@@ -75,7 +75,7 @@ const PlatformRanking = ({ recommendations }: PlatformRankingProps) => {
             <p className="text-xs text-stone-500">net profit</p>
             <div className="mt-2 pt-2 border-t border-stone-300 flex justify-center gap-4">
               <span className="text-xs text-stone-500">{rec.estimated_days_to_sale}d</span>
-              <span className="text-xs font-medium text-[#E5A22D]">${rec.effective_hourly_rate.toFixed(0)}/hr</span>
+              <span className="text-xs font-medium text-[#E5A22D]">${rec.effective_hourly_rate.toFixed(2)}/hr</span>
             </div>
           </div>
         ))}

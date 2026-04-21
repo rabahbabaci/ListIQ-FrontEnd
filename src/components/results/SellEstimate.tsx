@@ -7,7 +7,8 @@ interface SellEstimateProps {
 }
 
 const SellEstimate = ({ estimatedDays, sellProbability, platform }: SellEstimateProps) => {
-  const pct = Math.round(sellProbability * 100);
+  const displayProbability = Math.min(sellProbability, 0.95);
+  const pct = Math.round(displayProbability * 100);
   const colorClass = pct >= 70 ? "text-emerald-600" : pct >= 50 ? "text-amber-600" : "text-red-500";
   const barColor = pct >= 70 ? "bg-emerald-500" : pct >= 50 ? "bg-amber-500" : "bg-red-500";
 
