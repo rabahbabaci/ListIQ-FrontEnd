@@ -1,0 +1,87 @@
+{
+  "item": {
+    "category": "vintage t-shirt",
+    "brand": "Harley-Davidson",
+    "size": "L",
+    "condition": "Good",
+    "color": "black",
+    "estimated_retail": 45.0
+  },
+  "recommendations": [
+    {
+      "platform": "Depop",
+      "rank": 1,
+      "fit_score": 10.0,
+      "price_tiers": {
+        "fast_sale": 17,
+        "balanced": 31,
+        "max_revenue": 62
+      },
+      "platform_fee_pct": 0.1,
+      "estimated_shipping": 5.99,
+      "net_profit": {
+        "fast_sale": 9.31,
+        "balanced": 21.91,
+        "max_revenue": 49.81
+      },
+      "estimated_time_minutes": 35,
+      "effective_hourly_rate": 37.56,
+      "sell_probability_30d": 1.0,
+      "estimated_days_to_sale": 22,
+      "reasoning": "Best overall value for vintage t-shirts on Depop \u2014 $22 net profit in ~22 days (limited training data \u2014 listed-price proxy)"
+    },
+    {
+      "platform": "eBay",
+      "rank": 2,
+      "fit_score": 9.6,
+      "price_tiers": {
+        "fast_sale": 17,
+        "balanced": 31,
+        "max_revenue": 52
+      },
+      "platform_fee_pct": 0.13,
+      "estimated_shipping": 5.99,
+      "net_profit": {
+        "fast_sale": 8.8,
+        "balanced": 20.98,
+        "max_revenue": 39.25
+      },
+      "estimated_time_minutes": 35,
+      "effective_hourly_rate": 35.97,
+      "sell_probability_30d": 1.0,
+      "estimated_days_to_sale": 15,
+      "reasoning": "eBay offers faster sell-through (~15 days, 7 days quicker) but 13% fee leaves $1 less net profit"
+    },
+    {
+      "platform": "Poshmark",
+      "rank": 3,
+      "fit_score": 7.1,
+      "price_tiers": {
+        "fast_sale": 15,
+        "balanced": 27,
+        "max_revenue": 42
+      },
+      "platform_fee_pct": 0.2,
+      "estimated_shipping": 5.99,
+      "net_profit": {
+        "fast_sale": 6.01,
+        "balanced": 15.61,
+        "max_revenue": 27.61
+      },
+      "estimated_time_minutes": 35,
+      "effective_hourly_rate": 26.76,
+      "sell_probability_30d": 1.0,
+      "estimated_days_to_sale": 20,
+      "reasoning": "Poshmark offers faster sell-through (~20 days, 2 days quicker) but 20% fee leaves $6 less net profit"
+    }
+  ],
+  "worth_it": {
+    "verdict": true,
+    "best_net_profit": 21.91,
+    "best_platform": "Depop",
+    "effective_hourly_rate": 37.56,
+    "explanation": "Worth listing \u2014 estimated $9-50 net profit on Depop after fees and shipping"
+  },
+  "demo_item_id": "harley-davidson-vintage-t-shirt",
+  "demo_narrative_purpose": "2-way category, niche brand with collector appeal"
+}

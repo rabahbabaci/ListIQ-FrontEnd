@@ -1,0 +1,87 @@
+{
+  "item": {
+    "category": "denim jacket",
+    "brand": "Old Navy",
+    "size": "M",
+    "condition": "Good",
+    "color": "blue",
+    "estimated_retail": 35.0
+  },
+  "recommendations": [
+    {
+      "platform": "Depop",
+      "rank": 1,
+      "fit_score": 10.0,
+      "price_tiers": {
+        "fast_sale": 9,
+        "balanced": 15,
+        "max_revenue": 25
+      },
+      "platform_fee_pct": 0.1,
+      "estimated_shipping": 5.99,
+      "net_profit": {
+        "fast_sale": 2.11,
+        "balanced": 7.51,
+        "max_revenue": 16.51
+      },
+      "estimated_time_minutes": 35,
+      "effective_hourly_rate": 12.87,
+      "sell_probability_30d": 0.7,
+      "estimated_days_to_sale": 43,
+      "reasoning": "Denim Jackets nets $2 more than Poshmark on Depop after 10% fee (listed-price proxy)"
+    },
+    {
+      "platform": "Poshmark",
+      "rank": 2,
+      "fit_score": 8.0,
+      "price_tiers": {
+        "fast_sale": 11,
+        "balanced": 15,
+        "max_revenue": 24
+      },
+      "platform_fee_pct": 0.2,
+      "estimated_shipping": 5.99,
+      "net_profit": {
+        "fast_sale": 2.81,
+        "balanced": 6.01,
+        "max_revenue": 13.21
+      },
+      "estimated_time_minutes": 35,
+      "effective_hourly_rate": 10.3,
+      "sell_probability_30d": 0.77,
+      "estimated_days_to_sale": 39,
+      "reasoning": "Poshmark offers faster sell-through (~39 days, 4 days quicker) but 20% fee leaves $2 less net profit"
+    },
+    {
+      "platform": "eBay",
+      "rank": 3,
+      "fit_score": 7.1,
+      "price_tiers": {
+        "fast_sale": 6,
+        "balanced": 13,
+        "max_revenue": 24
+      },
+      "platform_fee_pct": 0.13,
+      "estimated_shipping": 5.99,
+      "net_profit": {
+        "fast_sale": -0.77,
+        "balanced": 5.32,
+        "max_revenue": 14.89
+      },
+      "estimated_time_minutes": 35,
+      "effective_hourly_rate": 9.12,
+      "sell_probability_30d": 1.0,
+      "estimated_days_to_sale": 29,
+      "reasoning": "eBay offers faster sell-through (~29 days, 14 days quicker) but 13% fee leaves $2 less net profit"
+    }
+  ],
+  "worth_it": {
+    "verdict": false,
+    "best_net_profit": 7.51,
+    "best_platform": "Depop",
+    "effective_hourly_rate": 12.87,
+    "explanation": "Not worth listing \u2014 estimated $8 net profit on Depop yields only $13/hr effective rate"
+  },
+  "demo_item_id": "old-navy-denim-jacket",
+  "demo_narrative_purpose": "THE 'don't sell' punchline \u2014 $13/hr, not worth your time"
+}

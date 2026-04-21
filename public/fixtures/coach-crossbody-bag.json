@@ -1,0 +1,87 @@
+{
+  "item": {
+    "category": "crossbody bag",
+    "brand": "Coach",
+    "size": "OS",
+    "condition": "Like New",
+    "color": "tan",
+    "estimated_retail": 250.0
+  },
+  "recommendations": [
+    {
+      "platform": "eBay",
+      "rank": 1,
+      "fit_score": 10.0,
+      "price_tiers": {
+        "fast_sale": 32,
+        "balanced": 69,
+        "max_revenue": 158
+      },
+      "platform_fee_pct": 0.13,
+      "estimated_shipping": 5.99,
+      "net_profit": {
+        "fast_sale": 21.85,
+        "balanced": 54.04,
+        "max_revenue": 131.47
+      },
+      "estimated_time_minutes": 35,
+      "effective_hourly_rate": 92.64,
+      "sell_probability_30d": 1.0,
+      "estimated_days_to_sale": 28,
+      "reasoning": "Crossbody Bags nets $5 more than Poshmark and estimated 10 days faster on eBay after 13% fee"
+    },
+    {
+      "platform": "Poshmark",
+      "rank": 2,
+      "fit_score": 9.1,
+      "price_tiers": {
+        "fast_sale": 33,
+        "balanced": 69,
+        "max_revenue": 146
+      },
+      "platform_fee_pct": 0.2,
+      "estimated_shipping": 5.99,
+      "net_profit": {
+        "fast_sale": 20.41,
+        "balanced": 49.21,
+        "max_revenue": 110.81
+      },
+      "estimated_time_minutes": 35,
+      "effective_hourly_rate": 84.36,
+      "sell_probability_30d": 0.79,
+      "estimated_days_to_sale": 38,
+      "reasoning": "Poshmark is a viable alternative at $49 net profit in ~38 days (20% fee)"
+    },
+    {
+      "platform": "Depop",
+      "rank": 3,
+      "fit_score": 7.7,
+      "price_tiers": {
+        "fast_sale": 30,
+        "balanced": 53,
+        "max_revenue": 107
+      },
+      "platform_fee_pct": 0.1,
+      "estimated_shipping": 5.99,
+      "net_profit": {
+        "fast_sale": 21.01,
+        "balanced": 41.71,
+        "max_revenue": 90.31
+      },
+      "estimated_time_minutes": 35,
+      "effective_hourly_rate": 71.5,
+      "sell_probability_30d": 0.71,
+      "estimated_days_to_sale": 42,
+      "reasoning": "Depop has lower fees (10%) but estimated net profit is $12 less than eBay (limited training data \u2014 listed-price proxy)"
+    }
+  ],
+  "worth_it": {
+    "verdict": true,
+    "best_net_profit": 54.04,
+    "best_platform": "eBay",
+    "effective_hourly_rate": 92.64,
+    "explanation": "Worth listing \u2014 estimated $22-131 net profit on eBay after fees and shipping"
+  },
+  "demo_item_id": "coach-crossbody-bag",
+  "demo_narrative_purpose": "Premium accessory, strong eBay routing"
+}
