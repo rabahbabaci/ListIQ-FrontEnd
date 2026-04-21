@@ -39,14 +39,24 @@ const PriceTiersComponent = ({ priceTiers, netProfit, platformFeePct, estimatedS
                 Recommended
               </span>
             )}
-            <tier.icon size={18} className={`mx-auto mb-2 ${isMiddle ? "text-[#5B4FD6]" : "text-stone-400"}`} />
-            <p className="text-xs font-medium text-stone-500 mb-1">{tier.label}</p>
-            <p className="text-sm text-stone-400 line-through">${salePrice}</p>
-            <p className="font-serif text-3xl md:text-4xl font-bold text-stone-900 mt-1">${net.toFixed(2)}</p>
-            <p className="text-sm font-medium text-stone-600 mt-1">in your pocket</p>
-            <p className="text-xs text-stone-400 mt-2">
-              after {Math.round(platformFeePct * 100)}% fee + ${estimatedShipping.toFixed(2)} shipping
-            </p>
+            <div className="flex items-center justify-center gap-2">
+              <tier.icon size={18} className={isMiddle ? "text-[#5B4FD6]" : "text-stone-500"} />
+              <span className="font-semibold text-stone-900">{tier.label}</span>
+            </div>
+            <p className="text-xs text-stone-500 mt-1">{tier.description}</p>
+
+            <div className="pt-3 mt-3 border-t border-stone-200/70 space-y-1">
+              <p className="text-base font-semibold text-stone-700">
+                List at{" "}
+                <span className="text-xl font-bold text-stone-900">${salePrice}</span>
+              </p>
+              <p className="font-serif text-2xl md:text-3xl font-bold text-stone-900 break-words">
+                You keep {net < 0 ? "-" : ""}${Math.abs(net).toFixed(2)}
+              </p>
+              <p className="text-xs text-stone-400">
+                after {Math.round(platformFeePct * 100)}% fee + ${estimatedShipping.toFixed(2)} shipping
+              </p>
+            </div>
           </div>
         );
       })}
