@@ -11,7 +11,7 @@ import PriceTiersComponent from "@/components/results/PriceTiers";
 import SellEstimate from "@/components/results/SellEstimate";
 import WhyThisPlatform from "@/components/results/WhyThisPlatform";
 import Footer from "@/components/layout/Footer";
-import { loadFixture, matchFilenameToFixture } from "@/data/fixtureLoader";
+import { loadFixture, loadFixtureIndex, matchFilenameToFixture } from "@/data/fixtureLoader";
 import { AnalysisResult, AIDetectedAttributes } from "@/types/api";
 
 const exampleLabels = ["Levi's Denim Jacket", "Coach Handbag", "H&M Midi Dress", "Old Navy Denim Jacket"];
@@ -24,6 +24,7 @@ const Analyze = () => {
   const [result, setResult] = useState<AnalysisResult | null>(null);
   const [detected, setDetected] = useState<AIDetectedAttributes | null>(null);
   const [uploadWarning, setUploadWarning] = useState<string | null>(null);
+  const [entryMode, setEntryMode] = useState<"example" | "upload" | null>(null);
   const resultsRef = useRef<HTMLDivElement>(null);
 
   const handleExampleSelect = async (index: number) => {
@@ -36,9 +37,38 @@ const Analyze = () => {
         condition: fixture.item.condition,
         image_url: fixture.item.image_url,
       });
+      setEntryMode("example");
       setStep("confirm");
     } catch (err) {
       console.error("Failed to load fixture:", err);
+    }
+  };
+
+  const handleCategoryChange = async (newCategory: string) => {
+    if (entryMode !== "example") return;
+
+    try {
+      const index = await loadFixtureIndex();
+      const normalizedTarget = newCategory.toLowerCase().trim();
+      const match = index.find(
+        (f) => f.category.toLowerCase().trim() === normalizedTarget
+      );
+
+      if (!match) {
+        console.warn(`No fixture found for category: ${newCategory}`);
+        return;
+      }
+
+      const fixture = await loadFixture(match.demo_item_id);
+      setResult(fixture);
+      setDetected({
+        category: fixture.item.category,
+        color: fixture.item.color,
+        condition: fixture.item.condition,
+        image_url: fixture.item.image_url,
+      });
+    } catch (err) {
+      console.error("Failed to swap category:", err);
     }
   };
 
@@ -66,6 +96,7 @@ const Analyze = () => {
           : `Couldn't match "${file.name}" to a known item. Showing default analysis.`
       );
 
+      setEntryMode("upload");
       setStep("analyzing");
     } catch (err) {
       console.error("Failed to process upload:", err);
@@ -95,6 +126,7 @@ const Analyze = () => {
     setResult(null);
     setDetected(null);
     setUploadWarning(null);
+    setEntryMode(null);
   };
 
   const top = result?.recommendations.find((r) => r.rank === 1);
@@ -128,10 +160,12 @@ const Analyze = () => {
               </div>
             )}
             <ConfirmDetails
+              key={`${result?.item.brand ?? ""}-${result?.item.category ?? ""}`}
               imageUrl={detected.image_url}
               detected={detected}
               onConfirm={handleConfirm}
               onBack={() => setStep("upload")}
+              onCategoryChange={entryMode === "example" ? handleCategoryChange : undefined}
             />
           </>
         )}

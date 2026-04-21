@@ -7,6 +7,7 @@ interface ConfirmDetailsProps {
   detected: AIDetectedAttributes;
   onConfirm: (details: { brand: string; size: string; category: string; color: string; condition: string }) => void;
   onBack: () => void;
+  onCategoryChange?: (newCategory: string) => void;
 }
 
 const categories = [
@@ -53,7 +54,7 @@ const AiBadge = () => (
   </span>
 );
 
-const ConfirmDetails = ({ imageUrl, detected, onConfirm, onBack }: ConfirmDetailsProps) => {
+const ConfirmDetails = ({ imageUrl, detected, onConfirm, onBack, onCategoryChange }: ConfirmDetailsProps) => {
   const [category, setCategory] = useState(normalizeCategory(detected.category));
   const [color, setColor] = useState(detected.color);
   const [condition, setCondition] = useState(normalizeCondition(detected.condition));
@@ -73,7 +74,7 @@ const ConfirmDetails = ({ imageUrl, detected, onConfirm, onBack }: ConfirmDetail
   );
 
   const aiFieldsEdited =
-    category !== initialAIFields.category ||
+    (!onCategoryChange && category !== initialAIFields.category) ||
     color !== initialAIFields.color ||
     condition !== initialAIFields.condition;
 
@@ -125,6 +126,7 @@ const ConfirmDetails = ({ imageUrl, detected, onConfirm, onBack }: ConfirmDetail
                   onChange={(e) => {
                     setCategory(e.target.value);
                     setSize("");
+                    onCategoryChange?.(e.target.value);
                   }}
                   className="w-full rounded-lg border border-border bg-background px-3 py-2.5 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
                 >
